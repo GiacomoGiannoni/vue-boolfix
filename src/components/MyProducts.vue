@@ -1,5 +1,10 @@
 <template>
-	<div></div>
+	<div>
+        <h3 v-if="true">Cerca...</h3>
+        <ul v-else>
+            <li></li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -9,5 +14,5 @@ export default {
 </script>
 
 <style>
-    
+
 </style>
