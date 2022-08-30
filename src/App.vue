@@ -2,7 +2,7 @@
   <div id="app">
     <MyHeader />
     <main>
-      <MyProducts />
+      <MyProducts :products="products" :isLoading="isLoading" />
     </main>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       products: [],
       query:"2001",
       api_key: "e6be65eb29366a9451fa37857751b276",
@@ -37,6 +38,7 @@ export default {
       axios
       .get(`${url}/search/movie?`, config).then((res) => {
         this.products = res.data.results;
+        this.isLoading = false;
         console.log(this.products);
       });
     }
@@ -50,7 +52,4 @@ export default {
 <style lang="scss">
   @import '~@fortawesome/fontawesome-free/css/all.css';
 
-#app {
-  
-}
 </style>
