@@ -1,6 +1,6 @@
 <template>
 	<div>
-        <MyLoader v-if="isLoading"/>
+        <!--<MyLoader v-if="isLoading"/>-->
         <ul>
             <li v-for="product in products" :key="product.id">
                 <h3>
@@ -13,16 +13,28 @@
                 </p>
             </li>
         </ul>
+        <ul>
+			<li v-for="product in products" :key="product.id">
+				<h4>
+					Titolo: {{ product.name }} <br />
+					Titolo originale: {{ product.original_name }}
+				</h4>
+				<p>
+					Lingua: {{ product.origin_country }} <br />
+					Voto: {{ product.vote_average }}
+				</p>
+			</li>
+		</ul>
     </div>
 </template>
 
 <script>
-import MyLoader from "./MyLoader";
+//import MyLoader from "./MyLoader";
 
 export default {
 	name: "MyProducts",
     components: {
-    MyLoader,
+    //MyLoader,
 },
     props: ["products", "isLoading"],
 };
