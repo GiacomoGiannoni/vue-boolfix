@@ -1,37 +1,80 @@
 <template>
   <div id="app">
-    <MyHeader @fetch-products="showProducts" />
+    <MyHeader :placeholder="placeholder" @fetch-products="showProducts" @fetch-series="showProducts" />
     <main>
-      <MyProducts :products="products" :isLoading="isLoading" />
+      <div class="container">
+        <div class="row">
+          <div class="col d-flex flex-wrap justify-content-center">
+            <div v-if="products.length && series.length">
+              <h2 class="text-center py-4">Movies</h2>
+              <section id="movies" class="d-flex flex-wrap justify-content-around">
+                <MyMain class="p-1" v-for="movie in products" :key="movie.id" :item="movie" />
+              </section>
+              <h2 class="text-center py-4">Series</h2>
+              <section id="series" class="d-flex flex-wrap justify-content-around">
+                <Product class="p-1" v-for="serie in series" :key="serie.id" :item="serie" />
+              </section>
+            </div>
+            <h3 v-else class="h1 pt-4">Cerca qualcosa...</h3>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader'
-import MyProducts from './components/MyProducts.vue'
+import MyHeader from './components/MyHeader.vue'
+import MyMain from './components/MyMain.vue'
+
 export default {
   name: 'App',
   components: {
     MyHeader,
-    MyProducts
+    MyMain
   },
   data() {
     return {
-      isLoading: false,
+      placeholder:"Cerca un film o una serie tv",
       products: [],
+      series: [],
     };
   },
   methods: {
-    showProducts(products) {
-      this.products = products;
-      console.log(this.products);
-    }
-  }
-}
+    showProducts(items, target) {
+      if (!items) {
+        this[target] = [];
+        return;
+      }
+      this[target] = items;
+    },
+  },
+};
 </script>
 
 <style lang="scss">
   @import '~@fortawesome/fontawesome-free/css/all.css';
+  @import '~bootstrap/dist/css/bootstrap.css';
+  $main_font: "Segoe UI", "Open Sans", Helvetica, sans-serif;
+
+  /*Generiche*/
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(194, 0, 0);
+    border-radius: 10px;
+  }
+
+  main {
+    font-family: $main_font;
+    background-color: rgb(71, 71, 71);
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+    color: white;
+  }
+
 
 </style>
