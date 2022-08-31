@@ -12,7 +12,7 @@
                 @keyup.enter="getProducts()" 
                 :placeholder="placeholder || 'Cerca qualcosa...'"
                 />
-                <button class="ms-2 btn btn-danger" type="button" @click="getProducts()">Search</button>
+                <button class="ms-2 btn " type="button" @click="getProducts()">Search</button>
 
             </div>
         </div>
@@ -62,13 +62,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+@import '@/style/vars.scss';
 header {
-	background-color: rgb(27, 27, 27);
+	background-color: $color-header;
 	height: 100px;
 
 	h1 {
-		color: rgb(194, 0, 0);
+		color: $color-logo;
 	}
+
+    button {
+        background-color: $color-logo;
+        color: white;
+    }
+
+    button:hover {
+        background-color: gray;
+        color: white;
+    }
 }
 </style>

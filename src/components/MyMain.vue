@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import '@/style/vars.scss';
     .fa-star {
         color: rgb(236, 201, 41);
     }
@@ -75,6 +75,7 @@ export default {
         width: 300px;
         border-radius: 5px;
         overflow-y: scroll;
+        border: 1px solid white;
     }
 
     li {
@@ -88,6 +89,6 @@ export default {
 
     ul:hover {
         background-image: none !important;
-        background-color: rgb(27, 27, 27);
+        background-color: $color-main;
     }
 </style>

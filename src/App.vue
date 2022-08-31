@@ -10,7 +10,6 @@
               <section id="movies" class="d-flex flex-wrap justify-content-around">
                 <MyMain class="p-1" v-for="movie in products" :key="movie.id" :item="movie" />
               </section>
-              <h2 class="text-center py-4">Series</h2>
               <section id="series" class="d-flex flex-wrap justify-content-around">
                 <Product class="p-1" v-for="serie in series" :key="serie.id" :item="serie" />
               </section>
@@ -55,6 +54,7 @@ export default {
 <style lang="scss">
   @import '~@fortawesome/fontawesome-free/css/all.css';
   @import '~bootstrap/dist/css/bootstrap.css';
+  @import '@/style/vars.scss';
   $main_font: "Segoe UI", "Open Sans", Helvetica, sans-serif;
 
   /*Generiche*/
@@ -64,13 +64,13 @@ export default {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgb(194, 0, 0);
+    background: $color-logo;
     border-radius: 10px;
   }
 
   main {
     font-family: $main_font;
-    background-color: rgb(71, 71, 71);
+    background-color: $color-main;
     height: calc(100vh - 100px);
     overflow-y: scroll;
     color: white;
