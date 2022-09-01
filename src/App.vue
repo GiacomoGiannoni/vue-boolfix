@@ -10,8 +10,9 @@
               <section id="movies" class="d-flex flex-wrap justify-content-around">
                 <MyMain class="p-1" v-for="movie in products" :key="movie.id" :item="movie" />
               </section>
+              <h2 class="text-center py-4">Series</h2>
               <section id="series" class="d-flex flex-wrap justify-content-around">
-                <Product class="p-1" v-for="serie in series" :key="serie.id" :item="serie" />
+                <MyMain class="p-1" v-for="serie in series" :key="serie.id" :item="serie" />
               </section>
             </div>
             <h3 v-else class="h1 pt-4">Cerca qualcosa...</h3>
@@ -30,8 +31,8 @@ export default {
   name: 'App',
   components: {
     MyHeader,
-    MyMain
-  },
+    MyMain,
+},
   data() {
     return {
       placeholder:"Cerca un film o una serie tv",

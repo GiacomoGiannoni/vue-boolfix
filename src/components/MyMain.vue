@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul class="list-unstyled d-flex flex-column" :style="bgStyle">
-            <li><strong>Titolo:</strong> {{item.title}}</li>
-            <li><strong>Titolo originale:</strong> {{item.original_title}}</li>
+            <li><strong>Titolo:</strong> {{item.title || item.name}}</li>
+            <li><strong>Titolo originale:</strong> {{item.original_title || item.original_name}}</li>
             <li class="language">
                 Lingua:
                 <img v-if="countries.includes(item.original_language)" :src="setFlag" :alt="item.title" />
